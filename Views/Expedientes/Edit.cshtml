@@ -1,0 +1,32 @@
+﻿@model ColegioSanJoseWeb.Models.Expediente
+
+<h2>Editar Expediente</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="IdExpediente" />
+
+    <div class="form-group">
+        <label>Alumno</label>
+        <select asp-for="IdAlumno" asp-items="ViewBag.Alumnos" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Materia</label>
+        <select asp-for="IdMateria" asp-items="ViewBag.Materias" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NotaFinal"></label>
+        <input asp-for="NotaFinal" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Observaciones"></label>
+        <input asp-for="Observaciones" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Actualizar</button>
+    <a href="/Expedientes" class="btn btn-secondary mt-2">Cancelar</a>
+
+</form>

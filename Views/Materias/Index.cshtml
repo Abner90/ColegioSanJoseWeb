@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ColegioSanJoseWeb.Models.Materia>
+
+<h2>Lista de Materias</h2>
+
+<a href="/Materias/Create" class="btn btn-primary">Nueva Materia</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre Materia</th>
+            <th>Docente</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreMateria</td>
+                <td>@item.Docente</td>
+                <td>
+                    <a href="/Materias/Edit/@item.IdMateria">Editar</a> |
+                    <a href="/Materias/Delete/@item.IdMateria">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

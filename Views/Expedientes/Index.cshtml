@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ColegioSanJoseWeb.Models.Expediente>
+
+<h2>Lista de Expedientes</h2>
+
+<a href="/Expedientes/Create" class="btn btn-primary">Nuevo Expediente</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>Materia</th>
+            <th>Nota Final</th>
+            <th>Observaciones</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Alumno.Nombre @item.Alumno.Apellido</td>
+                <td>@item.Materia.NombreMateria</td>
+                <td>@item.NotaFinal</td>
+                <td>@item.Observaciones</td>
+                <td>
+                    <a href="/Expedientes/Edit/@item.IdExpediente">Editar</a> |
+                    <a href="/Expedientes/Delete/@item.IdExpediente">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

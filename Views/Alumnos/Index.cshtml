@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ColegioSanJoseWeb.Models.Alumno>
+
+<h2>Lista de Alumnos</h2>
+
+<a href="/Alumnos/Create" class="btn btn-primary">
+    Nuevo Alumno
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.FechaNacimiento.ToShortDateString()</td>
+                <td>
+                    <a href="/Alumnos/Edit/@item.IdAlumno">Editar</a> |
+                    <a href="/Alumnos/Delete/@item.IdAlumno">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

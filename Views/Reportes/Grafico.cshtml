@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ColegioSanJoseWeb.Models.PromedioAlumno>
+
+<h2>Gráfico de Promedios por Alumno</h2>
+
+<canvas id="miGrafico" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const labels = [
+    @foreach (var item in Model)
+    {
+            <text>'@item.NombreCompleto',</text>
+    }
+    ];
+
+    const data = [
+    @foreach (var item in Model)
+    {
+            <text>@item.Promedio,</text>
+    }
+    ];
+
+    const ctx = document.getElementById('miGrafico');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Promedio',
+                data: data
+            }]
+        }
+    });
+</script>
